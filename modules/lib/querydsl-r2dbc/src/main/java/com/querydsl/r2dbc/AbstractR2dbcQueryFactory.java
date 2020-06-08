@@ -7,6 +7,7 @@ import com.querydsl.core.types.Path;
 import com.querydsl.core.types.SubQueryExpression;
 import com.querydsl.r2dbc.dml.R2dbcDeleteClause;
 import com.querydsl.r2dbc.dml.R2dbcInsertClause;
+import com.querydsl.r2dbc.dml.R2dbcUpdateClause;
 import com.querydsl.sql.Configuration;
 import com.querydsl.sql.RelationalPath;
 import com.querydsl.sql.SQLCommonQuery;
@@ -30,8 +31,8 @@ public abstract class AbstractR2dbcQueryFactory<Q extends SQLCommonQuery<?>> imp
         return new R2dbcInsertClause(connection, configuration, path);
     }
 
-    public final R2dbcDeleteClause update(RelationalPath<?> path) {
-        return new R2dbcDeleteClause(connection, configuration, path);
+    public final R2dbcUpdateClause update(RelationalPath<?> path) {
+        return new R2dbcUpdateClause(connection, configuration, path);
     }
 
     public final R2dbcDeleteClause delete(RelationalPath<?> path) {
